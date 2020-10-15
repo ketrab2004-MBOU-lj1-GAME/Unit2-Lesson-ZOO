@@ -10,12 +10,13 @@ public class DestroyOutOfBounds : MonoBehaviour
     void Update()
     {
         if (transform.position.x > size || transform.position.x < -size || transform.position.z > size ||
-            transform.position.z < -size)
+            transform.position.z < -size) //when out of bounds (also side to side)
         {
             Destroy(gameObject);
             if (gameObject.tag == "Animal")
             {
                 Debug.Log("Game Over");
+                //when animal isnt fed and gets offscreen you lose
             }
         }
     }

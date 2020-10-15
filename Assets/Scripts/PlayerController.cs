@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         
         transform.Translate(Vector3.right * horizontalInput * speed * Time.deltaTime);
+        //move left/right based on horizontal input, speed and delta
 
         // keep player in bounds
         if (transform.position.x < -sideRange)
@@ -22,10 +23,11 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(sideRange, transform.position.y, transform.position.z);
         }
         
-        //projectile
+        //projectile when "Jump" button (with unity input)
         if (Input.GetButtonDown("Jump"))
         {
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+            //create at pos and with prefab rotation
         }
     }
 }
